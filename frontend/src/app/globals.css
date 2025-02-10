@@ -2,20 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Default Light Mode */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --navbar-bg: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(240, 240, 240, 0.8)
+  );
+  --accent: #10b981;
+  --error: #ef4444;
 }
 
+/* Dark Mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --navbar-bg: linear-gradient(
+      135deg,
+      rgba(32, 32, 48, 0.9),
+      rgba(48, 48, 64, 0.8)
+    );
   }
+}
+
+/* Allow manual override via .dark class */
+.dark {
+  --background: #0a0a0a !important;
+  --foreground: #ededed !important;
+  --navbar-bg: linear-gradient(
+    135deg,
+    rgba(32, 32, 48, 0.9),
+    rgba(48, 48, 64, 0.8)
+  ) !important;
+}
+
+.light {
+  --background: #ffffff !important;
+  --foreground: #171717 !important;
+  --navbar-bg: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(240, 240, 240, 0.8)
+  ) !important;
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background-color: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background 0.3s, color 0.3s;
 }
