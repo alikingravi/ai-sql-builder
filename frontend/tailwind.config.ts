@@ -13,6 +13,8 @@ export default {
         foreground: "var(--foreground)",
         navbarBg: "var(--navbar-bg)",
         navbarBorderGlow: "var(--navbar-border-glow)",
+        accent: "var(--accent)",
+        error: "var(--error)",
       },
       keyframes: {
         fadeIn: {

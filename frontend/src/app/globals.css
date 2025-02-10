@@ -13,6 +13,7 @@
   );
   --navbar-border-glow: rgba(106, 2, 175, 0.6);
   --accent: #10b981;
+  --error: #ef4444;
 }
 
 /* Dark Mode */
@@ -26,6 +27,8 @@
       rgba(64, 64, 80, 0.8)
     );
     --navbar-border-glow: rgba(156, 1, 223, 0.8);
+    --accent: #22c55e;
+    --error: #dc2626;
   }
 }
 
@@ -38,6 +41,8 @@
     rgba(64, 64, 80, 0.8)
   ) !important;
   --navbar-border-glow: rgba(156, 1, 223, 0.8) !important;
+  --accent: #22c55e;
+  --error: #dc2626;
 }
 
 .light {
@@ -49,6 +54,8 @@
     rgba(255, 255, 255, 0.9)
   ) !important;
   --navbar-border-glow: rgba(106, 2, 175, 0.6) !important;
+  --accent: #10b981;
+  --error: #ef4444;
 }
 
 /* Glowing border animation */
@@ -82,4 +89,19 @@ body {
   background-color: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* ---- BUTTONS ---- */
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md text-sm font-medium transition-all;
+  }
+
+  .btn-submit {
+    @apply bg-accent text-white hover:bg-green-600;
+  }
+
+  .btn-clear {
+    @apply bg-error text-white hover:bg-red-600;
+  }
 }
