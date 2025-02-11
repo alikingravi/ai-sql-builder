@@ -91,6 +91,16 @@ body {
   transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
+/* .syntax-highlighter {
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: break-word;
+} */
+
+pre {
+  color: inherit !important;
+}
+
 /* ---- BUTTONS ---- */
 @layer components {
   .btn {
