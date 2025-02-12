@@ -2,39 +2,36 @@
 .DS_Store
 Thumbs.db
 
-# Node.js (for frontend)
+# --- FRONTEND (Next.js) ---
 frontend/node_modules/
 frontend/.next/
-frontend/.env
-frontend/.env.local
-frontend/.env.production
-frontend/.env.development
+frontend/.env*
 frontend/.turbo/
 frontend/.eslintcache
 frontend/.yarn/
 frontend/yarn.lock
 frontend/package-lock.json
 
-# Python (for backend)
+# --- BACKEND (Python) ---
 backend/__pycache__/
+backend/*.pyc
+backend/*.pyo
 backend/.venv/
 backend/venv/
 backend/env/
 backend/.mypy_cache/
 backend/.pytest_cache/
-backend/.env
-backend/.env.local
-backend/.env.production
-backend/.env.development
+backend/.env*
 backend/db.sqlite3
+backend/migrations/
 
-# VSCode & Logs
+# --- VSCode & Logs ---
 .vscode/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# OS-Specific
+# --- OS-Specific Files ---
 *.swp
 *.swo
