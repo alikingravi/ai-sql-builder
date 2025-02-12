@@ -13,7 +13,7 @@ frontend/yarn.lock
 frontend/package-lock.json
 
 # --- BACKEND (Python) ---
-backend/__pycache__/
+__pycache__/
 backend/*.pyc
 backend/*.pyo
 backend/.venv/
