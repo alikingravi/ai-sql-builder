@@ -14,6 +14,9 @@ class QueryResponse(BaseModel):
 
 # Converts a natural language query into a SQL statement.
 async def generate_sql(request: QueryRequest):
+  if not request.natural_query.strip():
+        raise HTTPException(status_code=400, detail="Query cannot be empty")
+  
   try:
     sql_query = await generate_sql_query(request.natural_query)
     return {"sql_query": sql_query}

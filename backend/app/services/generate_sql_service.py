@@ -38,3 +38,4 @@ async def generate_sql_query(natural_query: str) -> str:
   
   except Exception as e:
     raise RuntimeError(f"OpenAI API request failed: {str(e)}")
+  
