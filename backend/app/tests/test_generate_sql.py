@@ -1,7 +1,7 @@
 from fastapi.testclient import TestClient
 from app.main import app
 
-client = TestClient(app)  # ✅ Initialize FastAPI test client
+client = TestClient(app)
 
 def test_generate_sql_valid_query():
     response = client.post("/generate-sql", json={"natural_query": "Get all users"})
