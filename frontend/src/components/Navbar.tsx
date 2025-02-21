@@ -19,13 +19,11 @@ export default function Navbar() {
         isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
       } hover:scale-[1.03] hover:shadow-xl hover:animate-glowing`}
     >
-      {/* Left: App Name with Animated Underline */}
       <h1 className="relative text-lg font-bold tracking-wide transition-colors duration-300 hover:text-accent">
         SQL Builder
         <span className="absolute left-0 bottom-[-2px] w-full h-[2px] bg-accent scale-x-0 transition-transform duration-300 ease-in-out origin-right hover:scale-x-100"></span>
       </h1>
 
-      {/* Right: Theme Toggle */}
       <button
         onClick={toggleTheme}
         className="focus:outline-none hover:scale-110 transition-transform duration-200"

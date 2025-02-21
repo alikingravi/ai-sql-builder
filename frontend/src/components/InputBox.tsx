@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { FaTimes, FaPaperPlane } from "react-icons/fa";
+import { generateSqlQuery } from "@/api/generateSql";
 
 export default function InputBox({
   setQuery,
@@ -9,6 +10,26 @@ export default function InputBox({
   setQuery: (query: string) => void;
 }) {
   const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = async () => {
+    if (!input.trim()) {
+      setError("Please enter a valid query.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await generateSqlQuery(input);
+      setQuery(response.sql_query);
+      setError(null);
+    } catch (err: any) {
+      setError(err.response?.data?.detail || "An unexpected error occurred.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="flex flex-col items-center justify-center w-full max-w-3xl mx-auto p-6 bg-navbar rounded-lg shadow-lg transition-all">
@@ -26,11 +47,11 @@ export default function InputBox({
       <div className="flex justify-between w-full mt-3">
         <button
           className="btn btn-submit flex items-center"
-          onClick={() =>
-            setQuery(`SELECT * FROM users WHERE name LIKE '%${input}%'`)
-          }
+          onClick={handleSubmit}
+          disabled={loading}
         >
-          <FaPaperPlane className="mr-2" /> Submit
+          <FaPaperPlane className="mr-2" />{" "}
+          {loading ? "Generating ..." : "Submit"}
         </button>
 
         <button
@@ -38,11 +59,16 @@ export default function InputBox({
           onClick={() => {
             setInput("");
             setQuery("");
+            setError(null);
           }}
         >
           <FaTimes className="mr-2" /> Clear
         </button>
       </div>
+
+      {error && (
+        <div className="mt-4 p-2 bg-red-500 text-white rounded-md">{error}</div>
+      )}
     </div>
   );
 }
